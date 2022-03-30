@@ -3,7 +3,7 @@ GET http://localhost:9000/api HTTP/1.1
 
 ###
 
-POST http://localhost:9000/api HTTP/1.1
+POST https://apihotel02.herokuapp.com/hotel HTTP/1.1
 Content-Type: application/json
 
 {
@@ -15,21 +15,23 @@ Content-Type: application/json
     "contactNo":"311442282",
     "email":"fer@gmail.com",
     "password":"123456",
-    "regDate":"2019-12-13 09:00:24"
+    "regDate":"2019-12-13 09:00:24",
+    "updationDate":"",
+    "passUdateDate":""
 }
 
 ###
 DELETE http://localhost:9000/api/25 HTTP/1.1
 
 ###
-PUT http://localhost:9000/api/22 HTTP/1.1
+PUT https://apihotel02.herokuapp.com/hotel/24 HTTP/1.1
 Content-Type: application/json
 
 {
     "regNo":"123456",
-    "firstName":"Jesus",
-    "middleName":"Fernando",
-    "lastName":"Garzon",
+    "firstName":"Andres",
+    "middleName":"Hernando",
+    "lastName":"Perez",
     "gender":"male",
     "contactNo":"311442282",
     "email":"fer@gmail.com",
