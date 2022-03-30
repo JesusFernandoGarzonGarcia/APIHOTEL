@@ -2,7 +2,9 @@ const express = require('express')
 
 const routes = express.Router()
 
-routes.get('/',(req,res)=>{
+
+
+routes.get('/users',(req,res)=>{
     req.getConnection((err,conn)=>{
         if(err) return res.send(err)
 
@@ -25,6 +27,33 @@ routes.get('/rooms',(req,res)=>{
         })
     })
 })
+
+routes.get('/teams',(req,res)=>{
+    req.getConnection((err,conn)=>{
+        if(err) return res.send(err)
+
+        conn.query('SELECT * FROM courses',(err,rows)=>{
+            if(err) return res.send(err)
+
+            res.json(rows)
+        })
+    })
+})
+
+routes.get('/reserve',(req,res)=>{
+    req.getConnection((err,conn)=>{
+        if(err) return res.send(err)
+
+        conn.query('SELECT * FROM registration',(err,rows)=>{
+            if(err) return res.send(err)
+
+            res.json(rows)
+        })
+    })
+})
+
+
+
 
 routes.post('/',(req,res)=>{
     req.getConnection((err,conn)=>{
