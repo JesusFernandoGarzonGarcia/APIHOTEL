@@ -27,7 +27,7 @@ app.get('/',(req,res)=>{
     res.send('Welcom to my API')
 })
 
-app.use('/api',routes)
+app.use('/hotel',routes)
 
 // server runing ---------------------
 app.listen(app.get('port'),()=>{
