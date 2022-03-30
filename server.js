@@ -1,9 +1,8 @@
 const express =require('express')
 const mysql= require('mysql')
 const myconn = require('express-myconnection')
-const jwt = require('jsonwebtoken')
 const routes = require('./routes')
-const funtions = require('./funtions')
+
 const { json } = require('express/lib/response')
 //const res = require('express/lib/response')
 

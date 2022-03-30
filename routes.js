@@ -1,21 +1,21 @@
 const express = require('express')
-
+const tokengenerator = require('./funtions')
 const routes = express.Router()
 
 
 routes.get('/login',(req,res)=>{
-    res.send('<html><head><title>Login</title></head><body><form metthod="POST" action="/auth"> Nombre de usuario :<input type="text" name ="text"><br>Contraseña :<input type="password" name ="password"><br><input type="submit" value ="Iniciar Sesión"></form></body></html>')
+    res.send('<html><head><title>Login</title></head><body><form metthod="POST" action="/hotel/auth"> Nombre de usuario :<input type="text" name ="text"><br>Contraseña :<input type="password" name ="password"><br><input type="submit" value ="Iniciar Sesión"></form></body></html>')
 })
 
-routes.post('hotel/auth',(req,res)=>{
+routes.post('/auth',(req,res)=>{
     console.log("ingresa a autorizar")
-    const{username,password} = req.body
-    const user ={username:username}
-    const accessToken = generateAccessToken(user)
-    res.header('authorization',accessToken).json({
-        message:'Usuario autorizado',
-        token: accessToken
-    })
+   // const{username,password} = req.body
+    //const user ={username:username}
+    //const accessToken = tokengenerator.generateAccessToken(user)
+    //res.header('authorization',accessToken).json({
+    //    message:'Usuario autorizado',
+    //    token: accessToken
+    //})
 })
 
 
