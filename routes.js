@@ -32,6 +32,18 @@ routes.get('/users',(req,res)=>{
     })
 })
 
+routes.get('/admin',(req,res)=>{
+    req.getConnection((err,conn)=>{
+        if(err) return res.send(err)
+
+        conn.query('SELECT * FROM admin',(err,rows)=>{
+            if(err) return res.send(err)
+
+            res.json(rows)
+        })
+    })
+})
+
 
 routes.get('/rooms',(req,res)=>{
     req.getConnection((err,conn)=>{

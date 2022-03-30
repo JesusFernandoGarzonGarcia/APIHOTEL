@@ -7,14 +7,14 @@ POST https://apihotel02.herokuapp.com/hotel HTTP/1.1
 Content-Type: application/json
 
 {
-    "regNo":"123456",
-    "firstName":"Jesus",
-    "middleName":"Fernando",
-    "lastName":"Garzon",
+    "regNo":"1233333",
+    "firstName":"Pepito",
+    "middleName":"Ganzales",
+    "lastName":"Gonazales",
     "gender":"male",
-    "contactNo":"311442282",
-    "email":"fer@gmail.com",
-    "password":"123456",
+    "contactNo":"31145252",
+    "email":"pgg@gmail.com",
+    "password":"pgg",
     "regDate":"2019-12-13 09:00:24",
     "updationDate":"",
     "passUdateDate":""
