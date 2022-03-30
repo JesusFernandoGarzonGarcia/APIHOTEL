@@ -1,0 +1,38 @@
+###
+GET http://localhost:9000/api HTTP/1.1
+
+###
+
+POST http://localhost:9000/api HTTP/1.1
+Content-Type: application/json
+
+{
+    "regNo":"123456",
+    "firstName":"Jesus",
+    "middleName":"Fernando",
+    "lastName":"Garzon",
+    "gender":"male",
+    "contactNo":"311442282",
+    "email":"fer@gmail.com",
+    "password":"123456",
+    "regDate":"2019-12-13 09:00:24"
+}
+
+###
+DELETE http://localhost:9000/api/25 HTTP/1.1
+
+###
+PUT http://localhost:9000/api/22 HTTP/1.1
+Content-Type: application/json
+
+{
+    "regNo":"123456",
+    "firstName":"Jesus",
+    "middleName":"Fernando",
+    "lastName":"Garzon",
+    "gender":"male",
+    "contactNo":"311442282",
+    "email":"fer@gmail.com",
+    "password":"123456",
+    "regDate":"2019-12-13 09:00:24"
+}
