@@ -1,8 +1,9 @@
 const express =require('express')
 const mysql= require('mysql')
 const myconn = require('express-myconnection')
-
+const jwt = require('jsonwebtoken')
 const routes = require('./routes')
+const funtions = require('./funtions')
 const { json } = require('express/lib/response')
 //const res = require('express/lib/response')
 
@@ -21,6 +22,7 @@ database:'bhxcvvnq9j6lo7aynk87'
 // middelware-------------------------
 app.use(myconn(mysql,dboptions,'single'))
 app.use(express.json())
+app.use(express.urlencoded({extended:false}))
 
 //Routes------------------------------
 app.get('/',(req,res)=>{
