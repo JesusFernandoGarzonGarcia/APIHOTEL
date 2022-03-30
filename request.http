@@ -2,6 +2,9 @@
 GET https://apihotel02.herokuapp.com/hotel/users HTTP/1.1
 
 ###
+GET https://apihotel02.herokuapp.com/hotel/admin HTTP/1.1
+
+###
 
 POST https://apihotel02.herokuapp.com/hotel HTTP/1.1
 Content-Type: application/json
@@ -37,4 +40,15 @@ Content-Type: application/json
     "email":"fer@gmail.com",
     "password":"123456",
     "regDate":"2019-12-13 09:00:24"
+}
+###
+POST https://apihotel02.herokuapp.com/hotel/prueba HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"adminUno",
+    "email":"ad@gmail.com",
+    "password":"admin",
+    "reg_date":"2019-12-13 09:00:24",
+    "updation_date":""
 }

@@ -38,7 +38,6 @@ routes.get('/admin',(req,res)=>{
 
         conn.query('SELECT * FROM admin',(err,rows)=>{
             if(err) return res.send(err)
-
             res.json(rows)
         })
     })
@@ -103,6 +102,17 @@ routes.post('/',(req,res)=>{
            if(err) return res.send(err)
 
          res.json('usuario registrado')
+        })
+    })
+})
+
+routes.post('/addAdmin',(req,res)=>{
+    req.getConnection((err,conn)=>{
+        if(err) return res.send(err)
+        conn.query('INSERT INTO admin SET ?',[req.body],(err,rows)=>{
+           if(err) return res.send(err)
+
+         res.json('admin registrado')
         })
     })
 })
