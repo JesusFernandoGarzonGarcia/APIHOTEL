@@ -40,6 +40,18 @@ routes.get('/teams',(req,res)=>{
     })
 })
 
+routes.get('/prueba',(req,res)=>{
+    req.getConnection((err,conn)=>{
+        if(err) return res.send(err)
+
+        conn.query('SELECT * FROM courses',(err,rows)=>{
+            if(err) return res.send(err)
+
+            res.json(rows)
+        })
+    })
+})
+
 routes.get('/reserve',(req,res)=>{
     req.getConnection((err,conn)=>{
         if(err) return res.send(err)
