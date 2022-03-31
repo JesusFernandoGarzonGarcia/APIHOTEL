@@ -49,16 +49,10 @@ app.use(express.urlencoded({extended:true}))
 
 //Routes------------------------------
 app.get('/',(req,res)=>{
-    res.send('<H1>Bienvenido a INALTEZA API <br> <br>recuerda que debes iniciar sesion para poder utilizar esta API <br><br> puedes iniciar sesion ingresando a /login')
-
-})
-
-app.get('/login',(req,res)=>{
     app.use(express.static(__dirname + '/pages'));
     res.sendFile(path.join(__dirname, '/pages/login.html'))
-   // res.express.static(__dirname + '/pages/login.html')
-   // res.sendFile(path.join(__dirname, 'pages/login.html'));
-   // res.send('<html><head><title>Login</title></head><body><form metthod="GET" action="/auth"> Nombre de usuario :<input type="text" name ="text"><br>Contraseña :<input type="password" name ="password"><br><input type="submit" value ="Iniciar Sesión"></form></body></html>')
+   //res.send('<H1>Bienvenido a INALTEZA API <br> <br>recuerda que debes iniciar sesion para poder utilizar esta API <br><br> puedes iniciar sesion ingresando a /login')
+
 })
 
 app.get('/auth',(req,res)=>{
