@@ -4,6 +4,7 @@ const myconn = require('express-myconnection')
 const routes = require('./routes')
 const jwt = require('jsonwebtoken')
 var cookieParser = require('cookie-parser');
+const path = require('path')
 
 const { json } = require('express/lib/response')
 const { JsonWebTokenError } = require('jsonwebtoken')
@@ -52,7 +53,8 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/login',(req,res)=>{
-    res.send('<html><head><title>Login</title></head><body><form metthod="GET" action="/auth"> Nombre de usuario :<input type="text" name ="text"><br>Contraseña :<input type="password" name ="password"><br><input type="submit" value ="Iniciar Sesión"></form></body></html>')
+    res.sendFile(path.join(__dirname, 'pages/login.html'));
+   // res.send('<html><head><title>Login</title></head><body><form metthod="GET" action="/auth"> Nombre de usuario :<input type="text" name ="text"><br>Contraseña :<input type="password" name ="password"><br><input type="submit" value ="Iniciar Sesión"></form></body></html>')
 })
 
 app.get('/auth',(req,res)=>{
