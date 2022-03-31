@@ -1,4 +1,5 @@
 const express = require('express')
+const ax = require('axios')
 const tokengenerator = require('./funtions')
 const routes = express.Router()
 const path = require('path')
@@ -36,7 +37,6 @@ routes.get('/users',(req,res)=>{
 routes.get('/admin',(req,res)=>{
     req.getConnection((err,conn)=>{
         if(err) return res.send(err)
-
         conn.query('SELECT * FROM admin',(err,rows)=>{
             if(err) return res.send(err)
             res.json(rows)
@@ -62,19 +62,17 @@ routes.get('/teams',(req,res)=>{
 
         conn.query('SELECT * FROM courses',(err,rows)=>{
             if(err) return res.send(err)
-
             res.json(rows)
         })
     })
 })
 
+
 routes.get('/prueba',(req,res)=>{
     req.getConnection((err,conn)=>{
         if(err) return res.send(err)
-
         conn.query('SELECT * FROM courses',(err,rows)=>{
             if(err) return res.send(err)
-
             res.json(rows)
         })
     })
@@ -83,10 +81,8 @@ routes.get('/prueba',(req,res)=>{
 routes.get('/reserves',(req,res)=>{
     req.getConnection((err,conn)=>{
         if(err) return res.send(err)
-
         conn.query('SELECT * FROM registration',(err,rows)=>{
             if(err) return res.send(err)
-
             res.json(rows)
         })
     })
@@ -107,6 +103,24 @@ routes.post('/',(req,res)=>{
     })
 })
 
+routes.post('/accessRoket',(req,res)=>{
+    res.preventDefault()
+    ax({
+        method: 'POST',
+        url: 'https://rocketsapi.herokuapp.com/api/auth/signin',
+        responseType: 'application/json',
+        contentType: 'application/json',
+        data: {
+            "email":"inalteza@gmail.com",
+            "password":"1234567890"
+        }
+      }).then(function (response) {  console.log(response)
+      });
+})
+
+
+
+
 routes.post('/addAdmin',(req,res)=>{
     req.getConnection((err,conn)=>{
         if(err) return res.send(err)
@@ -117,6 +131,7 @@ routes.post('/addAdmin',(req,res)=>{
         })
     })
 })
+
 
 routes.delete('/:id',(req,res)=>{
     req.getConnection((err,conn)=>{
@@ -133,15 +148,11 @@ routes.delete('/:id',(req,res)=>{
 routes.put('/:id',(req,res)=>{
     req.getConnection((err,conn)=>{
         if(err) return res.send(err)
-
         conn.query('UPDATE userregistration set ? WHERE id=?',[req.body,req.params.id],(err,rows)=>{
            if(err) return res.send(err)
-
          res.json('Usuario Actualizado')
         })
     })
 })
-
-
 
 module.exports = routes

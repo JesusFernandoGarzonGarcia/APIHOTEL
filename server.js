@@ -3,24 +3,24 @@ const mysql= require('mysql')
 const myconn = require('express-myconnection')
 const routes = require('./routes')
 const jwt = require('jsonwebtoken')
-var cookieParser = require('cookie-parser');
 const path = require('path')
-
 const { json } = require('express/lib/response')
 const { JsonWebTokenError } = require('jsonwebtoken')
 const { post } = require('./routes')
-//const res = require('express/lib/response')
+const app =express()
+
+var cookieParser = require('cookie-parser');
 
 require('dotenv').config()
+
+app.use(cookieParser());
+app.set('port',process.env.PORT || 9000)
+
 
 function generateAccessToken(user){
 return jwt.sign(user,process.env.SECRET,{expiresIn:'5m'})
 }
 
-const app =express()
-app.use(cookieParser());
-app.set('port',process.env.PORT ||9000)
-//app.use(express.static(__dirname + '/pages'));
 
 function validateToken(req, res,next){
 if(!req.cookies.tokenAccess) res.send('Access denied')
@@ -62,6 +62,8 @@ app.get('/auth',(req,res)=>{
     res.cookie("tokenAccess" , accessToken, {expire :'5m'})
    res.redirect('https://apihotel02.herokuapp.com/hotel/') 
 })
+
+
 
 app.use('/hotel',validateToken,routes)
 

@@ -25,6 +25,14 @@ Content-Type: application/json
     "updationDate":"",
     "passUdateDate":""
 }
+###
+POST  https://rocketsapi.herokuapp.com/api/auth/signin HTTP/1.1
+Content-Type: application/json
+
+{
+    "email":"inalteza@gmail.com",
+    "password":"1234567890"
+}
 
 ###
 DELETE https://apihotel02.herokuapp.com/hotel/11 HTTP/1.1
