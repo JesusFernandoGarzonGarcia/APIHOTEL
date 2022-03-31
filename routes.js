@@ -103,7 +103,7 @@ routes.post('/',(req,res)=>{
     })
 })
 
-routes.get('/accessRoket',(req,res)=>{
+routes.post('/accessRoket',(req,res)=>{
     res.preventDefault()
     ax({
         method: 'POST',
