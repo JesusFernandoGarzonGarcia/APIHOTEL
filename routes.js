@@ -1,9 +1,11 @@
 const express = require('express')
 const tokengenerator = require('./funtions')
 const routes = express.Router()
-const path = require('path');
+const path = require('path')
+
 
 const jwt = require('jsonwebtoken')
+const { send, json } = require('express/lib/response')
 
 require('dotenv').config()
 
@@ -21,11 +23,9 @@ routes.get('/',(req,res)=>{
 routes.get('/users',(req,res)=>{
     req.getConnection((err,conn)=>{
         if(err) return res.send(err)
-
-        conn.query('SELECT * FROM userregistration',(err,rows)=>{
-            if(err) return res.send(err)
-
-            res.json(rows)
+            conn.query('SELECT * FROM userregistration',(err,rows)=>{
+                if(err) return res.send(err)
+                res.json(rows)
         })
     })
 })
