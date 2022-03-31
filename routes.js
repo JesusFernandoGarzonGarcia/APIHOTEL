@@ -81,7 +81,7 @@ routes.get('/prueba',(req,res)=>{
     })
 })
 
-routes.get('/reserve',(req,res)=>{
+routes.get('/reserves',(req,res)=>{
     req.getConnection((err,conn)=>{
         if(err) return res.send(err)
 
