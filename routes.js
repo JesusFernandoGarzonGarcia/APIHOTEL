@@ -104,7 +104,6 @@ routes.post('/',(req,res)=>{
 })
 
 routes.get('/accessRoket',(req,res)=>{
-    res.preventDefault()
     ax({
         method: 'POST',
         url: 'https://rocketsapi.herokuapp.com/api/auth/signin',
