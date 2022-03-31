@@ -10,23 +10,18 @@ function generateAccessToken(user){
 return jwt.sign(user,process.env.SECRET,{expiresIn:'5m'})
 }
 
-
-routes.get('/login',(req,res)=>{
-    res.send('<html><head><title>Login</title></head><body><form metthod="GET" action="/auth"> Nombre de usuario :<input type="text" name ="text"><br>Contraseña :<input type="password" name ="password"><br><input type="submit" value ="Iniciar Sesión"></form></body></html>')
+routes.get('/',(req,res)=>{
+            res.json({
+                saludo:"Bienvenido a esta api",
+                acciones_que_puedes_realizar:[{
+                    accion_1: "utiliza /users para obtener la lista de todos los usuarios",
+                    accion_2: "utiliza /rooms para obtener la lista de todas las habitaciones ",
+                    accion_3: "utiliza /teams para obtener la lista de todos los equipos",
+                    accion_4: "utiliza /reserve para obtener la lista de todas las reservaciones"
+                }],
+                consideraciones:""
+            })
 })
-
-routes.get('/auth',(req,res)=>{
-    console.log("ingresa a autorizar")
-    const{username,password} = req.body
-    const user ={username:username}
-    const accessToken = generateAccessToken(user)
-    res.header('authorization',accessToken).json({
-        message:'Usuario autorizado',
-        token: accessToken
-    })
-})
-
-
 
 routes.get('/users',(req,res)=>{
     req.getConnection((err,conn)=>{

@@ -43,11 +43,12 @@ database:'bhxcvvnq9j6lo7aynk87'
 // middelware-------------------------
 app.use(myconn(mysql,dboptions,'single'))
 app.use(express.json())
-app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({extended:true}))
 
 //Routes------------------------------
 app.get('/',(req,res)=>{
-    res.send('Welcom to my API')
+    res.send('<H1>Bienvenido a INALTEZA API <br> <br>recuerda que debes iniciar sesion para poder utilizar esta API <br><br> puedes iniciar sesion ingresando a /login')
+
 })
 
 app.get('/login',(req,res)=>{
@@ -59,9 +60,16 @@ app.get('/auth',(req,res)=>{
     const user ={username:username}
     const accessToken = generateAccessToken(user)
     res.cookie("tokenAccess" , accessToken, {expire :'5m'})
-    res.send('Autenticacion exitosa')
+ 
+    res.redirect('http://localhost:9000/hotel/')
 
+    
 })
+
+app.all('/secret', function (req, res, next) {
+    console.log('Accessing the secret section ...');
+    next(); // pass control to the next handler
+  });
 
 app.use('/hotel',validateToken,routes)
 
