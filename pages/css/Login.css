@@ -1,0 +1,87 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 85.5%;
+    background: #ffffff important;
+}
+.user_card {
+    height:500px;
+    width: 450px;
+    margin-top: 50px;
+    margin-bottom: auto;
+    background: #ffffff;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+
+}
+
+.brand_logo {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 15px solid white;
+}
+.form-control{
+    background:#c4c4c4; 
+    height: 40px;
+    width:300px;
+}
+
+.glyphicon-plus {
+    color:#f64747; 
+}
+.label-name{
+    display: block;
+    text-align: center;
+    line-height: 150%;
+}
+.form_container {
+    margin-top: 50px;
+}
+.login_btn {
+    height: 50px;
+    width:150px;
+    background: #00334e !important;
+    color: white !important;
+}
+.login_btn:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+.login_container {
+    margin-top: 40px;
+ 
+}
+
+img {
+	margin-top: -150px;
+	margin-left: -50px;
+    max-width: 200%;
+    height: 200;
+    width: 100; /* Bug de ie8 */
+}
+
+button{
+    background: #00334e !important;
+    color: white !important;
+}
+
+.input-group-text {
+    background: #c4c4c4 !important;
+    color: #c4c4c4 !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.input_user,
+.input_pass:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
