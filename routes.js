@@ -2,6 +2,8 @@ const express = require('express')
 const tokengenerator = require('./funtions')
 const routes = express.Router()
 const path = require('path')
+var SecureConf = require('secure-conf');
+var sconf      = new SecureConf();
 
 
 const jwt = require('jsonwebtoken')
@@ -29,6 +31,8 @@ routes.get('/users',(req,res)=>{
         })
     })
 })
+
+
 
 routes.get('/admin',(req,res)=>{
     req.getConnection((err,conn)=>{
