@@ -1,6 +1,7 @@
 const express = require('express')
 const tokengenerator = require('./funtions')
 const routes = express.Router()
+const path = require('path');
 
 const jwt = require('jsonwebtoken')
 
@@ -11,17 +12,7 @@ return jwt.sign(user,process.env.SECRET,{expiresIn:'5m'})
 }
 
 routes.get('/',(req,res)=>{
-  
-    res.json({
-        saludo:"Bienvenido a esta api",
-        acciones_que_puedes_realizar:[{
-            accion_1: "utiliza /users para obtener la lista de todos los usuarios",
-            accion_2: "utiliza /rooms para obtener la lista de todas las habitaciones ",
-            accion_3: "utiliza /teams para obtener la lista de todos los equipos",
-            accion_4: "utiliza /reserve para obtener la lista de todas las reservaciones"
-        }],
-        consideraciones:""
-    })
+    res.sendFile(path.join(__dirname, '/info.html'));
 
 })
 
