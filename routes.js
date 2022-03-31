@@ -103,20 +103,9 @@ routes.post('/',(req,res)=>{
     })
 })
 
-routes.post('/accessRoket',(req,res)=>{
+routes.get('/accessRoket',(req,res)=>{
     console.log('ingresa a ccaxes')
-    res.preventDefault()
-    ax({
-        method: 'POST',
-        url: 'https://rocketsapi.herokuapp.com/api/auth/signin',
-        responseType: 'application/json',
-        contentType: 'application/json',
-        data: {
-            "email":"inalteza@gmail.com",
-            "password":"1234567890"
-        }
-      }).then(function (response) {  console.log(response)
-      });
+  
 })
 
 
