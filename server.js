@@ -61,15 +61,8 @@ app.get('/auth',(req,res)=>{
     const accessToken = generateAccessToken(user)
     res.cookie("tokenAccess" , accessToken, {expire :'5m'})
  
-    res.redirect('http://localhost:9000/hotel/')
-
-    
+    res.redirect('http://localhost:9000/hotel/info') 
 })
-
-app.all('/secret', function (req, res, next) {
-    console.log('Accessing the secret section ...');
-    next(); // pass control to the next handler
-  });
 
 app.use('/hotel',validateToken,routes)
 
