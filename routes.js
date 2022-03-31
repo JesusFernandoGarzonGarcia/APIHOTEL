@@ -104,6 +104,7 @@ routes.post('/',(req,res)=>{
 })
 
 routes.get('/accessRoket',(req,res)=>{
+    console.log('ingresa a ccaxes')
     res.preventDefault()
     ax({
         method: 'POST',
