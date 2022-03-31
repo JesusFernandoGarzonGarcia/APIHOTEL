@@ -20,7 +20,7 @@ return jwt.sign(user,process.env.SECRET,{expiresIn:'5m'})
 const app =express()
 app.use(cookieParser());
 app.set('port',process.env.PORT ||9000)
-app.use(express.static(__dirname + '/pages'));
+//app.use(express.static(__dirname + '/pages'));
 
 function validateToken(req, res,next){
 if(!req.cookies.tokenAccess) res.send('Access denied')
@@ -54,6 +54,7 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/login',(req,res)=>{
+    app.use(express.static(__dirname + '/pages'));
     res.sendFile(path.join(__dirname, '/pages/login.html'))
    // res.express.static(__dirname + '/pages/login.html')
    // res.sendFile(path.join(__dirname, 'pages/login.html'));

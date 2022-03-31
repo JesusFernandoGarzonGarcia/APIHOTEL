@@ -17,7 +17,6 @@ return jwt.sign(user,process.env.SECRET,{expiresIn:'5m'})
 
 routes.get('/',(req,res)=>{
     res.sendFile(path.join(__dirname, '/pages/index.html'));
-
 })
 
 
