@@ -60,8 +60,7 @@ app.get('/auth',(req,res)=>{
     const user ={username:username}
     const accessToken = generateAccessToken(user)
     res.cookie("tokenAccess" , accessToken, {expire :'5m'})
- //   res.redirect('https://localhost:9000/hotel/info.html') 
-    res.redirect('https://apihotel02.herokuapp.com/hotel/') 
+   res.redirect('https://apihotel02.herokuapp.com/hotel/') 
 })
 
 app.use('/hotel',validateToken,routes)
