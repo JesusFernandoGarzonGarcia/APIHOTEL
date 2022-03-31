@@ -103,8 +103,8 @@ routes.post('/',(req,res)=>{
     })
 })
 
-routes.get('/accessRoket',(req,res)=>{
-    console.log('ingresa a ccaxes')
+routes.get('/accessRoket/:id',(req,res)=>{
+    console.log(req.params.id)
   
 })
 
