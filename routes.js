@@ -103,7 +103,7 @@ routes.post('/',(req,res)=>{
     })
 })
 
-routes.get('/accessRoket',(req,res)=>{
+routes.post('/accessRoket',(req,res)=>{
     console.log('ingresa a ccaxes')
     res.preventDefault()
     ax({
